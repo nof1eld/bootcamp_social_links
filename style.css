@@ -1,0 +1,149 @@
+:root {
+  --color-Green: hsl(75, 94%, 57%);
+  --color-White: hsl(0, 0%, 100%);
+  --color-Grey: hsl(0, 0%, 20%);
+  --color-Dark-Grey: hsl(0, 0%, 12%);
+  --color-Off-Black: hsl(0, 0%, 8%);
+  --font-size: 14px;
+  --font-family: "Inter", sans-serif;
+  --font-weight-regular: 400;
+  --font-weight-semiBold: 600;
+  --font-weight-bold: 700;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--color-Off-Black);
+  font-family: var(--font-family);
+  width: 100vw;
+  min-height: 100vh;
+  height: auto;
+}
+
+.card {
+  zoom: 75%;
+  background-color: var(--color-Dark-Grey);
+  width: 100%;
+  max-width: 500px;
+  height: fit-content;
+  margin: 70px auto;
+  padding: 30px;
+  border-radius: 12px;
+  text-align: center;
+  transition: all 0.3s ease-in-out;
+  border-style: solid;
+  border-color: transparent;
+  border-width: 0px;
+  box-shadow: 5px 4px 30px 0;
+}
+
+#avatar {
+  border-radius: 50%;
+  max-width: 35%;
+  height: auto;
+  margin-bottom: 40px;
+}
+#myimg {
+  max-width: 7%;
+  height: auto;
+}
+
+h1 {
+  color: var(--color-White);
+  font-weight: var(--font-weight-semiBold);
+  margin-bottom: 10px;
+  z-index: 1;
+}
+
+h3 {
+  color: var(--color-Green);
+  font-weight: var(--font-weight-bold);
+  margin-bottom: 25px;
+}
+
+p {
+  color: var(--color-White);
+  font-weight: var(--font-weight-regular);
+  margin-bottom: 20px;
+}
+
+.card ul {
+  list-style-type: none;
+}
+
+.card li {
+  border-style: solid;
+  border-width: 2px;
+  border-color: var(--color-Grey);
+  border-radius: 15px;
+  padding: 20px;
+  margin-top: 1%;
+  margin-bottom: 20px;
+  cursor: pointer;
+  background-color: var(--color-Off-Black);
+  transition: all 0.3s ease;
+}
+
+.card a {
+  text-decoration: none;
+  color: var(--color-White);
+  font-weight: var(--font-weight-bold);
+}
+
+.card li:hover {
+  border-color: var(--color-Green);
+  background-color: var(--color-Green);
+  color: var(--color-Dark-Grey);
+  transform: rotateX(-10deg) scaleX(1.1) scaleY(1.1);
+  box-shadow: 0px 0px 30px 0 var(--color-Green);
+  margin-right: 8px;
+  transition: all 0.3s ease;
+}
+
+i {
+  color: transparent;
+  transition: all 0.3s ease;
+}
+
+li:hover i {
+  color: black;
+  margin-left: 8px;
+  transition: all 0.3s ease;
+}
+
+.card:hover {
+  border-color: var(--color-Green);
+  transition: all 0.5s ease-in-out;
+  transform: perspective(3500px) rotateX(-10deg) scaleX(1.1) scaleY(1.1);
+  box-shadow: 0px 0px 40px 0;
+  border-width: 0px;
+  border-color: var(--color-Green);
+}
+
+.container {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 22px;
+  user-select: none;
+}
+
+@media (min-width: 375px) {
+  .card {
+    width: 90%;
+    height: auto;
+  }
+  .card h1 {
+    font-size: 30px;
+  }
+  .card p {
+    font-size: 14px;
+  }
+}
