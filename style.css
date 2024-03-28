@@ -22,19 +22,20 @@ body {
   font-family: var(--font-family);
   width: 100vw;
   min-height: 100vh;
-  height: auto;
 }
 
 .card {
-  zoom: 75%;
+  z-index: 100;
+  zoom: 80%;
   background-color: var(--color-Dark-Grey);
   width: 100%;
   max-width: 500px;
   height: fit-content;
-  margin: 70px auto;
+  margin: 120px auto;
   padding: 30px;
   border-radius: 12px;
   text-align: center;
+  font-size: 22px;
   transition: all 0.3s ease-in-out;
   border-style: solid;
   border-color: transparent;
@@ -47,10 +48,6 @@ body {
   max-width: 35%;
   height: auto;
   margin-bottom: 40px;
-}
-#myimg {
-  max-width: 7%;
-  height: auto;
 }
 
 h1 {
@@ -70,6 +67,9 @@ p {
   color: var(--color-White);
   font-weight: var(--font-weight-regular);
   margin-bottom: 20px;
+}
+p::before {
+  content: '"Night"';
 }
 
 .card ul {
@@ -99,7 +99,7 @@ p {
   border-color: var(--color-Green);
   background-color: var(--color-Green);
   color: var(--color-Dark-Grey);
-  transform: rotateX(-10deg) scaleX(1.1) scaleY(1.1);
+  transform: perspective(3500px) rotateX(-10deg) scaleX(1.1) scaleY(1.1);
   box-shadow: 0px 0px 30px 0 var(--color-Green);
   margin-right: 8px;
   transition: all 0.3s ease;
@@ -108,6 +108,7 @@ p {
 i {
   color: transparent;
   transition: all 0.3s ease;
+  z-index: 2;
 }
 
 li:hover i {
@@ -124,26 +125,95 @@ li:hover i {
   border-width: 0px;
   border-color: var(--color-Green);
 }
-
-.container {
-  display: block;
-  position: relative;
-  padding-left: 35px;
-  margin-bottom: 12px;
+.bg {
+  z-index: -2;
+  top: 0;
+  bottom: 0;
+  position: absolute;
+  width: 100vw;
+  height: 133%;
+}
+#check {
+  -webkit-appearance: none;
+  position: absolute;
+  top: 0;
+  width: 100vw;
+  height: 120vh;
+  z-index: -1;
+  left: 0;
+  background-color: rgba(15, 15, 234, 0);
+}
+#check:hover {
   cursor: pointer;
-  font-size: 22px;
-  user-select: none;
+}
+
+label .far {
+  z-index: -2;
+  margin: 20px 50%;
+  top: 0;
+  text-align: center;
+  position: absolute;
+  color: var(--color-Green);
+  cursor: pointer;
+  font-size: 30px;
+}
+label .fa-sun {
+  color: transparent;
+}
+
+#check:checked ~ label .fa-sun {
+  color: black;
+}
+
+#check:checked ~ label .fa-moon {
+  display: none;
+}
+
+#check:checked ~ .bg {
+  background-color: bisque;
+}
+
+#check:checked ~ .card {
+  background-color: antiquewhite;
+}
+input:checked ~ .card h1 {
+  color: var(--color-Off-Black);
+}
+
+input:checked ~ .card p {
+  color: var(--color-Off-Black);
+}
+
+input:checked ~ .card p::before {
+  content: '"Day"';
+}
+
+input:checked ~ .card h3 {
+  color: rgb(25, 0, 25);
+}
+
+input:checked ~ .card ul li {
+  color: var(--color-Off-Black);
+  background-color: antiquewhite;
+}
+input:checked ~ .card ul li:hover {
+  border-color: black;
+  box-shadow: 0px 0px 30px 0;
 }
 
 @media (min-width: 375px) {
   .card {
-    width: 90%;
+    width: 84%;
     height: auto;
+  }
+  .card label .far {
+    margin: 10px 240px;
+    position: absolute;
   }
   .card h1 {
     font-size: 30px;
   }
   .card p {
-    font-size: 14px;
+    font-size: 17px;
   }
 }
